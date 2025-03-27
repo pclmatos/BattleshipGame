@@ -28,7 +28,7 @@ public class AttackBoard extends Board {
             int[][] directions = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
             // int[] direction = new int[2];
             hits.remove(coordinates);
-            System.out.println("Removing hit at: " + coordinates);
+            // System.out.println("Removing hit at: " + coordinates);
             for (int[] dir : directions) {
                 removeAllAdjacentHits(coordinates, dir);
             }
@@ -43,7 +43,7 @@ public class AttackBoard extends Board {
     private void removeAllAdjacentHits(Coordinates coordinates, int[] direction) {
         Coordinates tmp = Coordinates.of(coordinates.getRow() + direction[0], coordinates.getCol() + direction[1]);
         while (isValidCell(tmp.getRow(), tmp.getCol()) && getAtCell(tmp) == '.') {
-            System.out.println("Removing hit at: " + tmp);
+            // System.out.println("Removing hit at: " + tmp);
             hits.remove(tmp);
             tmp = Coordinates.of(tmp.getRow() + direction[0], tmp.getCol() + direction[1]);
         }
