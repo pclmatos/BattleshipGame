@@ -1,0 +1,99 @@
+.BoardWrapper {
+	display: inline-grid;
+	grid-template-areas:
+		"empty columnLabels"
+		"rowLabels Board";
+	grid-template-rows: auto;
+	grid-template-columns: auto;
+}
+
+.rowLabels {
+	grid-area: rowLabels;
+	display: grid;
+	grid-template-rows: repeat(10, 40px);
+	justify-content: center;
+	align-items: center;
+}
+
+.columnLabels {
+	grid-area: columnLabels;
+	display: grid;
+	grid-template-columns: repeat(10, 40px);
+	justify-content: center;
+	align-items: center;
+}
+
+.rowLabel,
+.columnLabel {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+	width: 40px;
+	height: 40px;
+}
+
+.Board {
+	grid-area: Board;
+	display: inline-grid;
+	grid-template-rows: repeat(10, 40px);
+	grid-template-columns: repeat(10, 40px);
+	gap: 0;
+}
+
+.coordinate {
+	width: 40px;
+	height: 40px;
+	border: 2px solid white;
+	background-color: rgb(50, 160, 238);
+}
+
+.coordinate.clickable {
+	cursor: crosshair; /* Change cursor to pointer if clickable */
+}
+
+.coordinate.clickable:hover {
+	background-color: rgb(18, 243, 18); /* Change color on hover if clickable */
+}
+
+.coordinate.clicked {
+	background-color: red;
+}
+
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+	.BoardWrapper {
+		grid-template-areas:
+			"columnLabels"
+			"Board";
+		grid-template-rows: auto auto;
+		grid-template-columns: auto;
+	}
+
+	.Board {
+		grid-template-rows: repeat(10, 30px); /* Smaller cells */
+		grid-template-columns: repeat(10, 30px);
+	}
+
+	.coordinate {
+		width: 30px;
+		height: 30px;
+	}
+}
+
+@media (max-width: 480px) {
+	.Board {
+		grid-template-rows: repeat(10, 20px); /* Even smaller cells */
+		grid-template-columns: repeat(10, 20px);
+	}
+
+	.coordinate {
+		width: 20px;
+		height: 20px;
+	}
+}

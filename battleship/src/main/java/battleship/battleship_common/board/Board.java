@@ -28,11 +28,12 @@ public abstract class Board {
     public void placeShip(Ship ship, Coordinates start, Coordinates end) {
         char initial = ship.getName().charAt(0);
 
+        List<Coordinates> shipCoords = new LinkedList<>();
+
         if (isHorizontal(start, end)) {
             int startCol = Math.min(start.getCol(), end.getCol());
             int endCol = Math.max(start.getCol(), end.getCol());
 
-            List<Coordinates> shipCoords = new LinkedList<>();
             // Mark ship horizontally
             for (int i = startCol; i <= endCol; i++) {
                 this.board[start.getRow()][i] = initial;
@@ -54,7 +55,6 @@ public abstract class Board {
             int startRow = Math.min(start.getRow(), end.getRow());
             int endRow = Math.max(start.getRow(), end.getRow());
 
-            List<Coordinates> shipCoords = new LinkedList<>();
             // Mark ship vertically
             for (int i = startRow; i <= endRow; i++) {
                 this.board[i][start.getCol()] = initial;
@@ -77,8 +77,13 @@ public abstract class Board {
         return start.getRow() == end.getRow();
     }
 
+    public boolean isValidCell(int row, int col) {
+        return row >= 0 && row < ROW_SIZE && col >= 0 && col < ROW_SIZE;
+    }
+
     // Helper method to check if a cell is within the board boundaries
-    public static boolean isValidCell(int row, int col) {
+    public static boolean isValidCell(Coordinates coordinates) {
+        int row = coordinates.getRow(), col = coordinates.getCol();
         return row >= 0 && row < ROW_SIZE && col >= 0 && col < ROW_SIZE;
     }
 
@@ -115,8 +120,8 @@ public abstract class Board {
         return this.board[coordinates.getRow()][coordinates.getCol()];
     }
 
-    protected boolean isValidPosition(Board b, Coordinates start, Coordinates end) {
-        char[][] board = b.getBoard();
+    protected boolean isValidPosition(Coordinates start, Coordinates end) {
+        char[][] board = getBoard();
         if (start.getRow() == end.getRow()) {
             for (int i = start.getCol(); i < end.getCol(); i++) {
                 char curr = board[start.getRow()][i];

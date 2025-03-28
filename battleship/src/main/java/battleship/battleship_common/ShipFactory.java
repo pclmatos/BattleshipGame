@@ -10,21 +10,26 @@ import battleship.battleship_common.ships.Submarine;
 public class ShipFactory {
 
     public static Ship createShip(String name) {
-
+        Ship ship = null;
         switch (name) {
             case "Carrier":
-                return new Carrier();
+                ship = new Carrier();
+                break;
             case "Battleship":
-                return new Battleship();
+                ship = new Battleship();
+                break;
             case "Destroyer":
-                return new Destroyer();
+                ship = new Destroyer();
+                break;
             case "Cruiser":
-                return new Cruiser();
+                ship = new Cruiser();
+                break;
             case "Submarine":
-                return new Submarine();
+                ship = new Submarine();
+                break;
         }
 
-        return null;
+        return ship;
     }
 
 }

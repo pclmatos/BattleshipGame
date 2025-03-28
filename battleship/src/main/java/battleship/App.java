@@ -3,7 +3,6 @@ package battleship;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.Buffer;
 import java.util.Random;
 
 import battleship.battleship_common.Coordinates;
@@ -40,25 +39,20 @@ public class App {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // playerDefenseBoard.printBoard();
-        // cpuAttackBoard.printBoard();
 
     }
 
     private static void PvP(BufferedReader reader) throws IOException {
-        System.out.println("Jogador 1 qual é o teu nome?");
+        System.out.print("Nome jogador 1: ");
         String namePlayer1 = reader.readLine();
 
-        System.out.println("Jogador 2 qual é o teu nome?");
+        System.out.print("Nome jogador 2: ");
         String namePlayer2 = reader.readLine();
 
         HumanPlayer p1 = new HumanPlayer(namePlayer1), p2 = new HumanPlayer(namePlayer2);
 
         AttackBoard p1AttackBoard = p1.getAttackBoard();
         DefenseBoard p1DefenseBoard = p1.getDefenseBoard();
-
-        // System.out.println("--------------- Defense Board -----------------");
-        // playerDefenseBoard.printBoard();
 
         AttackBoard p2AttackBoard = p2.getAttackBoard();
         DefenseBoard p2DefenseBoard = p2.getDefenseBoard();
@@ -70,11 +64,11 @@ public class App {
         while (!p1DefenseBoard.getShips().isEmpty() && !p2DefenseBoard.getShips().isEmpty()) {
             System.out.println();
             if (turn) {
-                System.out.println("Turno do " + p1.getName());
+                System.out.println("Turno " + p1.getName());
                 play(p1AttackBoard, p2DefenseBoard, reader);
                 turn = false;
             } else {
-                System.out.println("Turno do " + p2.getName());
+                System.out.println("Turno " + p2.getName());
                 play(p2AttackBoard, p1DefenseBoard, reader);
                 turn = true;
             }

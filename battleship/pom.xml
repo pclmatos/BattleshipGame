@@ -4,7 +4,11 @@
   <groupId>battleship</groupId>
   <artifactId>battleship</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
   <name>battleship</name>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -18,6 +22,16 @@
       <groupId>com.google.code.gson</groupId>
       <artifactId>gson</artifactId>
       <version>2.12.1</version>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.websocket</groupId>
+      <artifactId>jakarta.websocket-api</artifactId>
+      <version>2.1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.tyrus</groupId>
+      <artifactId>tyrus-server</artifactId>
+      <version>1.17</version>
     </dependency>
   </dependencies>
   <build>
@@ -36,11 +50,11 @@
             <artifactId>maven-jar-plugin</artifactId>
             <version>3.2.0</version>
             <configuration>
-                <archive>
-                    <manifest>
-                        <mainClass>battleship.App</mainClass>  <!-- Update this with your actual main class -->
-                    </manifest>
-                </archive>
+              <archive>
+                  <manifest>
+                      <mainClass>battleship.App</mainClass>  <!-- Update this with your actual main class -->
+                  </manifest>
+              </archive>
             </configuration>
         </plugin>
     </plugins>

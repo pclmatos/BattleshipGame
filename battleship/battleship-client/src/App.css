@@ -1,0 +1,38 @@
+.App {
+	display: flex;
+	flex-direction: column; /* Stack boards vertically */
+	align-items: center; /* Center boards horizontally */
+	justify-content: center; /* Center boards vertically */
+	height: 100vh; /* Full viewport height */
+	width: 100vw; /* Full viewport width */
+	margin: 0;
+	padding: 0;
+}
+
+.BoardContainer {
+	margin: 10px 0;
+}
+
+.App-header {
+	height: 100%;
+	width: 100%;
+}
+
+.App-logo {
+	height: 100%;
+	width: 100%;
+	opacity: 60%;
+	object-fit: cover; /* Ensures the image covers the entire area without distortion */
+}
+
+@media screen and (max-width: 512px) {
+	body {
+		font-size: 10px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	body p {
+		font-size: 8px;
+	}
+}

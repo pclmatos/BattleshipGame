@@ -35,7 +35,7 @@ public class CpuPlayer extends AbstractPlayer {
                 row = row + direction[0];
                 col = col + direction[1];
                 shotCoordinates = Coordinates.of(row, col);
-            } while (!Board.isValidCell(row, col) || attackBoard.getAtCell(shotCoordinates) != 'W');
+            } while (!Board.isValidCell(shotCoordinates) || attackBoard.getAtCell(shotCoordinates) != 'W');
 
         }
 
