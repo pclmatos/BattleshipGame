@@ -24,15 +24,3 @@
 	opacity: 60%;
 	object-fit: cover; /* Ensures the image covers the entire area without distortion */
 }
-
-@media screen and (max-width: 512px) {
-	body {
-		font-size: 10px;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	body p {
-		font-size: 8px;
-	}
-}
